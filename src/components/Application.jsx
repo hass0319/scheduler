@@ -4,7 +4,7 @@ import { days, interviewers } from "./data.jsx";
 
 import "components/Application.scss";
 import DayList from "./DayList.jsx";
-import InterviewerList from "./InterviewerList.jsx";
+// import InterviewerList from "./InterviewerList.jsx";
 
 
 export default function Application(props) {
