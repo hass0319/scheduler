@@ -1,9 +1,30 @@
 import React from "react";
 
-import "components/Appointment/styles.scss"
+import "./styles.scss";
+import Header from "./Header";
+import Show from "./Show";
+import Empty from "./Empty";
 
 export default function Appointment(props) {
+  console.log(props);
+
+  // console.log(props.interview.interviewer)
   return (
-    <article className="appointment">{props.time ? "Appointment at " + props.time : "no Appointments"}</article>
+    < article className="appointment" >
+      <Header
+        time={props.time}
+      >
+      </Header>
+      {/* {props.time ? "Appointment at " + props.time : "no Appointments"} */}
+      {
+        props.interview ?
+          <Show
+            student={props.interview.student}
+            interviewer={props.interview.interviewer.name}
+          >
+          </Show>
+          : <Empty />
+      }
+    </article >
   )
 }

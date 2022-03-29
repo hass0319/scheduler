@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from 'react';
 
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
@@ -17,8 +17,9 @@ import Header from "../src/components/Appointment/Header.jsx"
 import Empty from "../src/components/Appointment/Empty.jsx"
 import Show from "../src/components/Appointment/Show.jsx"
 import Confirm from "../src/components/Appointment/Confirm.jsx"
-import Status from "../src/components/Appointment/Status.jsx"
-import Error from "../src/components/Appointment/Error.jsx"
+import Status from "../src/components/Appointment/Status.jsx";
+import Error from "../src/components/Appointment/Error.jsx";
+import Form from "../src/components/Appointment/Form.jsx";
 
 //--------------- Button ---------------
 
@@ -175,9 +176,9 @@ storiesOf("Appointment", module)
     />
   )
   .add("Show", () =>
-    <Show
+    < Show
       student="Lydia Miller-Jones"
-      interviewer={interviewers}
+      interviewer={interviewers[0].name}
       onEdit={action("onEdit")}
       onDelete={action("onDelete")}
     />
@@ -201,6 +202,39 @@ storiesOf("Appointment", module)
       onClose={action("onClose")}
     />
   )
+  .add("Create", () =>
+    <Form
+      interviewers={interviewers}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+    />
+  )
+  .add("Edit", () =>
+    <Form
+      student="Amro Hassan"
+      interviewers={interviewers}
+      interviewer={interviewers[0].id}
+      onSave={action("onSave")}
+      onCancel={action("onCancel")}
+    />
+  )
+  .add("Appointment Empty", () => (
+    <Fragment>
+      <Appointment id={1} time="4pm" />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+  .add("Appointment Booked", () => (
+    <Fragment>
+      <Appointment
+        id={1}
+        time="4pm"
+        interview={{ student: "Lydia Miller-Jones", interviewer }}
+      />
+      <Appointment time="5pm" />
+    </Fragment>
+  ))
+
 
 //--------------- _ ---------------
 
