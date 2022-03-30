@@ -6,8 +6,7 @@ import Show from "./Show";
 import Empty from "./Empty";
 
 export default function Appointment(props) {
-  console.log(props);
-
+  // console.log(props);
   // console.log(props.interview.interviewer)
   return (
     < article className="appointment" >
@@ -15,7 +14,6 @@ export default function Appointment(props) {
         time={props.time}
       >
       </Header>
-      {/* {props.time ? "Appointment at " + props.time : "no Appointments"} */}
       {
         props.interview ?
           <Show

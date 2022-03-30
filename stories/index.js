@@ -6,10 +6,10 @@ import { action } from "@storybook/addon-actions";
 import "index.scss";
 
 import Button from "components/Button.jsx";
-import DayListItem from "components/DayListItem.jsx";
 import DayList from "components/DayList.jsx";
-import InterviewerListItem from "components/InterviewerListItem.jsx";
+import DayListItem from "components/DayListItem.jsx";
 import InterviewerList from "components/InterviewerList.jsx";
+import InterviewerListItem from "components/InterviewerListItem.jsx";
 
 
 import Appointment from "../src/components/Appointment/index.js";
@@ -20,6 +20,7 @@ import Confirm from "../src/components/Appointment/Confirm.jsx"
 import Status from "../src/components/Appointment/Status.jsx";
 import Error from "../src/components/Appointment/Error.jsx";
 import Form from "../src/components/Appointment/Form.jsx";
+// import { getAppointmentsForDay, getInterview } from "helpers/selectors.js";
 
 //--------------- Button ---------------
 
@@ -233,21 +234,4 @@ storiesOf("Appointment", module)
       />
       <Appointment time="5pm" />
     </Fragment>
-  ))
-
-
-//--------------- _ ---------------
-
-
-
-//--------------- _ ---------------
-
-
-
-//--------------- _ ---------------
-
-
-
-//--------------- _ ---------------
-
-
+  ));
