@@ -10,7 +10,7 @@ export default function InterviewerList(props) {
   // console.log("props.interviewers[0]", props.interviewers[0]);
 
   const propsInterviewers = props.interviewers;
-  const interviewersArr = propsInterviewers.map(el => {
+  const mappedInterviewers = propsInterviewers.map(el => {
 
     return (
       <InterviewerListItem
@@ -23,16 +23,14 @@ export default function InterviewerList(props) {
       </InterviewerListItem>
     );
   })
-
-  // console.log("interviewersArr", interviewersArr);
-
+  // console.log("mappedInterviewers", mappedInterviewers);
   return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">
-        {interviewersArr.name}
+        {mappedInterviewers.name}
       </h4>
       <ul className="interviewers__list">
-        {interviewersArr}
+        {mappedInterviewers}
       </ul>
     </section>
   );
