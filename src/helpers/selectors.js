@@ -39,8 +39,23 @@ export const getInterview = (state, interview) => {
       student: interview.student,
       interviewer: interviewData
     };
-    console.log('interviewDataObj =>', interviewDataObj);
+    // console.log('interviewDataObj =>', interviewDataObj);
     return interviewDataObj;
   }
   return null;
+};
+
+export const getInterviewersForDay = (state, day) => {
+
+  const getDays = state.days;
+  const filteredDays = getDays.filter((arr) => arr.name === day);
+
+  if (!filteredDays || filteredDays.length === 0) return [];
+
+  const getInterviewers = filteredDays[0].interviewers;
+  const interviewersPerDay = getInterviewers.map((el) => state.interviewers[el]);
+
+  console.log("interviewersPerDay =>", interviewersPerDay)
+  //... returns an array of interviewers for that day
+  return interviewersPerDay;
 };
