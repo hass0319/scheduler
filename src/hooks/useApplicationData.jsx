@@ -24,6 +24,9 @@ export default function useApplicationData(props) {
           ...state.appointments,
           [id]: appointment
         };
+        const dayOfWeek = state.days.findIndex((day) => state.day === day.name)
+        state.days[dayOfWeek].spots = state.days[dayOfWeek].spots + updateSpots(state, id, appointments);
+
         setState({
           ...state,
           appointments
@@ -43,9 +46,14 @@ export default function useApplicationData(props) {
           ...state.appointments,
           [id]: appointment
         };
+        const dayOfWeek = state.days.findIndex((day) => state.day === day.name)
+
+        // let spotsUpdate = state.days[dayOfWeek].spots
+        state.days[dayOfWeek].spots = state.days[dayOfWeek].spots + updateSpots(state, id, appointments);
+
         setState({
           ...state,
-          appointments
+          appointments,
         });
       })
   };
@@ -73,14 +81,45 @@ export default function useApplicationData(props) {
     []
   );
 
-  function updateSpots() {
+  function updateSpots(state, id, appointments) {
+    console.log("updateSpots=>", state, id, appointments)
+    const oldInterview = state.appointments[id]
+      ? state.appointments[id].interview
+      : null;
+    const newInterview = appointments[id]
+      ? appointments[id].interview
+      : null;
 
+    let counter = 0;
+
+    // if nothing changed
+    if (newInterview !== null && oldInterview !== null) {
+      counter = 0;
+    }
+    // if created
+    if (oldInterview === null && newInterview !== null) {
+      counter = -1
+    }
+    // if deleted
+    if (newInterview === null && oldInterview !== null) {
+      counter = +1;
+    }
+
+    // const dayOfWeek = state.days.findIndex((day) => state.day === day.name)
+
+    // const spotsUpdate = state.days[dayOfWeek].spots
+    // spotsUpdate = spotsUpdate + counter;
+
+    // setState((prev) => ({
+    //   ...prev,
+    //   ...state
+    // }));
+    return counter;
   }
 
   return {
     state,
     setDay,
-    updateSpots,
     bookInterview,
     cancelInterview
   }
