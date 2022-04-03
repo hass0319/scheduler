@@ -6,7 +6,7 @@ import InterviewerListItem from "./InterviewerListItem.jsx";
 export default function InterviewerList(props) {
   // console.log("props", props);
   // console.log("props.interviewer", props.value);
-  // console.log("props.interviewers", props.interviewers);
+  console.log("props.interviewers", props.interviewers);
   // console.log("props.interviewers[0]", props.interviewers[0]);
 
   const propsInterviewers = props.interviewers;

@@ -55,7 +55,11 @@ export default function Appointment(props) {
           transition(SHOW);
         }, 1500);
       })
-      .catch(err => transition(ERROR_SAVE, true))
+
+      .catch(err => {
+        transition(ERROR_SAVE, true)
+        console.log(err)
+      })
     // console.log("bookInteview =>", bookInterview())
   };
 
@@ -73,8 +77,8 @@ export default function Appointment(props) {
 
   return (
     < article className="appointment" >
-      {/* ---------HEADER--------- */}
 
+      {/* ---------HEADER--------- */}
       <Header
         time={props.time}
       />
@@ -82,7 +86,6 @@ export default function Appointment(props) {
       {/* --------------VISUAL MODE-------------- */}
 
       {/* ---------MODE--CREATE--------- */}
-
       {mode === CREATE && (
         <Form
           interviewers={props.interviewers}
@@ -157,14 +160,3 @@ export default function Appointment(props) {
     </article >
   )
 }
-
-// function onSave() {
-//   transition(SAVING)
-//   function onComplete() {
-//     transition(SHOW)
-//   };
-// };
-
-// function onEDIT() {
-//   transition(EDIT)
-// };
