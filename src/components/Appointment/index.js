@@ -53,7 +53,7 @@ export default function Appointment(props) {
       .then(() => {
         setTimeout(() => {
           transition(SHOW);
-        }, 1500);
+        }, 100);
       })
 
       .catch(err => {
@@ -70,7 +70,7 @@ export default function Appointment(props) {
       .then(() => {
         setTimeout(() => {
           transition(EMPTY);
-        }, 1500);
+        }, 100);
       })
       .catch(err => transition(ERROR_DELETE, true))
   };
