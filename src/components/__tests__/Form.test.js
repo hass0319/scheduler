@@ -65,7 +65,6 @@ describe("Form", () => {
 
     expect(queryByText(/student name cannot be blank/i)).toBeNull();
     expect(onSave).toHaveBeenCalledTimes(1);
-    // expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", interviewers[0].id);
   });
 
@@ -85,7 +84,6 @@ describe("Form", () => {
     fireEvent.click(getByText("Save"));
 
     expect(onSave).toHaveBeenCalledTimes(1);
-    // expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", null);
     expect(onSave).toHaveBeenCalledWith("Lydia Miller-Jones", interviewers[0].id);
 
   });

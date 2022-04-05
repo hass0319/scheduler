@@ -14,8 +14,7 @@ import Status from "./Status";
 import useVisualMode from "hooks/useVisualMode";
 
 export default function Appointment(props) {
-  // console.log(props);
-  // console.log(props.interview.interviewer)
+
   const CREATE = "CREATE";
   const CONFIRM = "CONFIRM";
   const DELETING = "DELETING";
@@ -28,9 +27,11 @@ export default function Appointment(props) {
 
 
 
-  const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
-
-  // console.log("index mode", mode);
+  const { mode, transition, back } = useVisualMode(
+    props.interview
+      ? SHOW
+      : EMPTY
+  );
 
   function onAdd() {
     transition(CREATE)
@@ -45,9 +46,9 @@ export default function Appointment(props) {
       student: name,
       interviewer
     };
+
     transition(SAVING);
-    // console.log("++++", name, interviewer)
-    // console.log("interview =>", interview);
+
     props
       .bookInterview(props.id, interview)
       .then(() => {
@@ -58,9 +59,7 @@ export default function Appointment(props) {
 
       .catch(err => {
         transition(ERROR_SAVE, true)
-        console.log(err)
-      })
-    // console.log("bookInteview =>", bookInterview())
+      });
   };
 
   function onDELETE() {
@@ -158,5 +157,5 @@ export default function Appointment(props) {
       )}
 
     </article >
-  )
+  );
 }

@@ -8,8 +8,6 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay } from "help
 
 
 export default function Application(props) {
-  // console.log("props", props);
-  // console.log("appointments", appointments);
   const {
     state,
     setDay,
@@ -22,7 +20,6 @@ export default function Application(props) {
 
   const appointments = dailyAppointments.map(el => {
     const interview = getInterview(state, el.interview);
-    console.log(el)
     return (
       <Appointment
         key={el.id}

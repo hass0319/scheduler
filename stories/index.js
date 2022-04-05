@@ -11,7 +11,6 @@ import DayListItem from "components/DayListItem.jsx";
 import InterviewerList from "components/InterviewerList.jsx";
 import InterviewerListItem from "components/InterviewerListItem.jsx";
 
-
 import Appointment from "../src/components/Appointment/index.js";
 import Header from "../src/components/Appointment/Header.jsx"
 import Empty from "../src/components/Appointment/Empty.jsx"
@@ -20,7 +19,6 @@ import Confirm from "../src/components/Appointment/Confirm.jsx"
 import Status from "../src/components/Appointment/Status.jsx";
 import Error from "../src/components/Appointment/Error.jsx";
 import Form from "../src/components/Appointment/Form.jsx";
-// import { getAppointmentsForDay, getInterview } from "helpers/selectors.js";
 
 //--------------- Button ---------------
 
@@ -53,7 +51,8 @@ storiesOf("DayListItem", module)
   .add("Selected", () => <DayListItem name="Monday" spots={5} selected />)
   .add("Full", () => <DayListItem name="Monday" spots={0} />)
   .add("Clickable", () => (
-    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} /> // action() allows us to create a callback that appears in the actions panel when clicked
+    <DayListItem name="Tuesday" setDay={action("setDay")} spots={5} />
+    // action() allows us to create a callback that appears in the actions panel when clicked
   ));
 
 //--------------- DayList ---------------
