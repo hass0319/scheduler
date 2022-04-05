@@ -7,11 +7,11 @@ Inteview Schedular is a user-friendly, single-page application. It allows the us
 The side-bar holds the days of the week with a dynamic counter to show how many interview spots are available in that day. Any day can be clicked to be accessed
 
 ## Demo Media
-### !["Main Page"](URL)
+### !["Main Page"](https://github.com/hass0319/scheduler/blob/master/docs/mainPage.png)
 
-### !["CREATING / EDITING a new appointment"](URL)
+### !["CREATING / EDITING a new appointment"](https://github.com/hass0319/scheduler/blob/master/docs/editForm.png)
 
-### !["Deleting an existing appointment"](URL)
+### !["Deleting an existing appointment"](https://github.com/hass0319/scheduler/blob/master/docs/deleteForm.png)
 
 ## Future Goals
 
