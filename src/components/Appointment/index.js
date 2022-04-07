@@ -35,14 +35,6 @@ export default function Appointment(props) {
       : EMPTY
   );
 
-  function onAdd() {
-    transition(CREATE);
-  };
-
-  function onCancel() {
-    back();
-  };
-
   // when save is clicked student name and interviewer selected are added to the interview object to be used by bookInterview function
   function onSave(name, interviewer) {
     const interview = {
@@ -60,13 +52,10 @@ export default function Appointment(props) {
         }, 100);
       })
 
-      .catch(err => {
-        transition(ERROR_SAVE, true)
-      });
+      .catch(err => transition(ERROR_SAVE, true));
   };
 
   // when delete is clicked interview, appointment id is refrenced, and is used by cancelInterview function
-
   function onDELETE() {
     transition(DELETING, true);
     props
@@ -76,7 +65,7 @@ export default function Appointment(props) {
           transition(EMPTY);
         }, 100);
       })
-      .catch(err => transition(ERROR_DELETE, true))
+      .catch(err => transition(ERROR_DELETE, true));
   };
 
   return (
@@ -94,7 +83,7 @@ export default function Appointment(props) {
         <Form
           interviewers={props.interviewers}
           onSave={onSave}
-          onCancel={onCancel}
+          onCancel={() => back()}
         />
       )}
 
@@ -102,7 +91,7 @@ export default function Appointment(props) {
       {mode === CONFIRM && (
         <Confirm
           message="Are you sure you would like to delete?"
-          onCancel={onCancel}
+          onCancel={() => back()}
           onConfirm={onDELETE}
         />
       )}
@@ -117,14 +106,14 @@ export default function Appointment(props) {
           interviewer={props.interview && props.interview.interviewer.id}
           interviewers={props.interviewers}
           onSave={onSave}
-          onCancel={onCancel}
+          onCancel={() => back()}
         />
       )}
 
       {/* ---------MODE--EMPTY--------- */}
       {mode === EMPTY && (
         <Empty
-          onAdd={onAdd}
+          onAdd={() => transition(CREATE)}
         />
       )}
 
@@ -132,14 +121,14 @@ export default function Appointment(props) {
       {mode === ERROR_DELETE && (
         <Error
           message="Could not CANCEL or DELETE Appointment."
-          onClose={onCancel}
+          onClose={() => back()}
         />
       )}
 
       {mode === ERROR_SAVE && (
         <Error
           message="Could not CREATE or SAVE  Appointment."
-          onClose={onCancel}
+          onClose={() => back()}
         />
       )}
 
