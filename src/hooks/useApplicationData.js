@@ -41,8 +41,9 @@ export default function useApplicationData(props) {
   function cancelInterview(id) {
 
     return axios.delete(`/api/appointments/${id}`)
-      .then((res) => {
+      .then(() => {
 
+        // reassigning appointments and appointment with interview null
         const appointment = {
           ...state.appointments[id],
           interview: null

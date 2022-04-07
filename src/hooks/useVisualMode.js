@@ -9,6 +9,7 @@ export default function useVisualMode(initial) {
 
   // when called, adds the new mode to our history, replace is used when transition is called twice
   function transition(mode, replace = false) {
+    //if replace is true remove the last state
     if (replace) {
       history.pop();
       history.push(mode);
@@ -26,7 +27,7 @@ export default function useVisualMode(initial) {
     if (history.length < 2) return;
     history.pop();
     setHistory(history);
-    setMode(history[history.length - 1]);
+    return setMode(history[history.length - 1]);
   };
 
   return { mode, transition, back };
