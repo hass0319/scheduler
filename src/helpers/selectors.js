@@ -3,6 +3,8 @@
 export const getAppointmentsForDay = (state, day) => {
 
   const getDays = state.days;
+
+  // filter is used to loop over days array to get the wanted day
   const filteredDays = getDays.filter(
     (arr) => arr.name === day
   );
@@ -44,6 +46,8 @@ export const getInterview = (state, interview) => {
 export const getInterviewersForDay = (state, day) => {
 
   const getDays = state.days;
+
+  // filter is used to loop over days array to get the wanted day
   const filteredDays = getDays.filter(
     (arr) => arr.name === day
   );

@@ -5,9 +5,12 @@ import PropTypes from 'prop-types';
 import "components/InterviewerList.scss"
 import InterviewerListItem from "./InterviewerListItem.jsx";
 
+// InterviewerList is responsible for rendering a list of InterviewerListItem components.
 export default function InterviewerList(props) {
 
   const propsInterviewers = props.interviewers;
+
+  //Maping over the intervers array to return the InterviewerListItem components as children
   const mappedInterviewers = propsInterviewers.map(el => {
 
     return (

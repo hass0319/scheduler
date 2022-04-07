@@ -3,7 +3,7 @@ import React from "react";
 import "components/Button.scss";
 import classNames from "classnames";
 
-
+// a function for the button to used in confirm, delete, save, cancel
 export default function Button(props) {
 
    let buttonClass = classNames("button", {

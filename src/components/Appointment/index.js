@@ -25,8 +25,10 @@ export default function Appointment(props) {
   const SAVING = "SAVING";
   const SHOW = "SHOW";
 
+  //  SETTIMEOUT is used to show the saving and deleting transition
 
-
+  // defines mode(state) and funtions (transition, back) form useVisualMode.js
+  // if there is an interview Show mode is default, else Empty mode
   const { mode, transition, back } = useVisualMode(
     props.interview
       ? SHOW
@@ -34,13 +36,14 @@ export default function Appointment(props) {
   );
 
   function onAdd() {
-    transition(CREATE)
+    transition(CREATE);
   };
 
   function onCancel() {
-    back()
+    back();
   };
 
+  // when save is clicked student name and interviewer selected are added to the interview object to be used by bookInterview function
   function onSave(name, interviewer) {
     const interview = {
       student: name,
@@ -61,6 +64,8 @@ export default function Appointment(props) {
         transition(ERROR_SAVE, true)
       });
   };
+
+  // when delete is clicked interview, appointment id is refrenced, and is used by cancelInterview function
 
   function onDELETE() {
     transition(DELETING, true);
