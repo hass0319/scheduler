@@ -4,6 +4,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 Inteview Schedular is a user-friendly, single-page application. It allows the user to book interviews with interviewers from 12pm to 5pm daily. A user can add, edit, and delete an appointment with any of the available interviewers. Dummy Data is coming from an API that the app makes put and delete requests to. A user can choose any day of the week to update their appointments.
 
+Inteview Schedular has it's mock data from a [scheduler api](https://github.com/hass0319/scheduler-api).
+
 The side-bar holds the days of the week with a dynamic counter to show how many interview spots are available in that day. Any day can be clicked to be accessed
 
 ## Demo Media
